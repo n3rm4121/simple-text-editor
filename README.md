@@ -11,7 +11,7 @@ cd simple-text-editor
 
 ### 2. Compile the program:
 ```
-g++ simple-text-editor -o ./simple-text-editor
+g++ main.cpp -o ./main
 ```
 
 
