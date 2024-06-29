@@ -1,2 +1,22 @@
 # simple-text-editor
-This is a simple text editor in C++ using doubly linked list.
+
+## Installation
+
+### 1. Clone the Repo
+
+```
+git clone https://github.com/n3rm4121/simple-text-editor.git
+cd simple-text-editor
+```
+
+### 2. Compile the program:
+```
+g++ simple-text-editor -o ./simple-text-editor
+```
+
+
+### Usage:
+
+```
+./simple-text-editor
+```
