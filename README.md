@@ -1,5 +1,8 @@
 # simple-text-editor
 
+![ss](https://github.com/n3rm4121/simple-text-editor/assets/80183902/768d1501-e99f-41d1-97b4-e0a01ca9b3f6)
+
+
 ## Installation
 
 ### 1. Clone the Repo
@@ -18,5 +21,5 @@ g++ main.cpp -o ./main
 ### Usage:
 
 ```
-./simple-text-editor
+./main
 ```
