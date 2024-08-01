@@ -2,6 +2,8 @@
 
 Welcome to the **Simple Text Editor**! This is a command-line based text editor written in C++ using doubly linked list data structure. It offers basic text manipulation features and supports color-coded outputs for better readability. Below is a detailed guide on how to use this editor.
 
+![final (1)](https://github.com/user-attachments/assets/b9c39005-e1d4-4d65-9358-19bc4f2d0ae7)
+
 ## Features ✨
 
 - **Add Lines**: Add new lines of text, either individually or multiple lines at once.
