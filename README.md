@@ -1,108 +1,83 @@
 # Simple Text Editor 📝
 
-Welcome to the **Simple Text Editor**! This is a lightweight, command-line based text editor written in C++. It offers basic text manipulation features and supports color-coded outputs for better readability. Below is a detailed guide on how to use this editor.
+Welcome to the **Simple Text Editor**! This is a command-line based text editor written in C++ using doubly linked list data structure. It offers basic text manipulation features and supports color-coded outputs for better readability. Below is a detailed guide on how to use this editor.
+
 
 ## Features ✨
 
-- **Add** new lines to your text.
-- **Edit** existing lines by specifying the line number.
-- **Delete** specific lines.
-- **Display** the entire text with clear visual separation.
-- **Save** your work to a text file.
-- **Open** and read text files.
-- **Clear** the screen and display the current text.
-- **Menu** command to show available commands.
-- **Exit** the editor.
+- **Add Lines**: Add new lines of text, either individually or multiple lines at once.
+- **Edit Lines**: Edit existing lines with confirmation prompts.
+- **Delete Lines**: Delete specific lines or all lines with confirmation.
+- **File Operations**: Save the current text to a file or open an existing file to edit.
+- **Display**: Clear and visually appealing display of the current text with ANSI color codes for better readability.
 
-## How to Use 🚀
+## Commands 🛠️
 
-### Adding a Line
-To add a new line to your text, use the `add` command followed by the text you want to add.
-```sh
-add This is a new line.
+- `menu` - Displays the available commands.
+- `add <text>` - Adds a new line with the given text.
+- `add -m` - Adds multiple lines until 'end' is entered.
+- `add -b <line_number>` - Adds a new line below the specified line number.
+- `add -a <line_number>` - Adds a new line above the specified line number.
+- `edit <line_number>` - Edits the specified line with the new text.
+- `del <line_number>` - Deletes the specified line number.
+- `display` - Displays the current text.
+- `save` - Saves the current text to a file.
+- `open <file_name>` - Opens the specified file and loads the content.
+- `del -a` - Deletes all the lines.
+- `exit` - Exits the text editor.
+
+## Getting Started 🚀
+
+### Prerequisites
+
+Ensure you have the following installed:
+- C++ compiler (e.g., `g++`)
+- `make` (optional, for easier compilation)
+
+### Compilation
+
+Compile the program using `g++`:
+
+```bash
+g++ main.cpp -o ./main
 ```
 
-### Editing a Line
-To edit an existing line, use the `edit` command followed by the line number and the new text.
-```sh
-edit 2 This is the updated text.
+### Running the Program
+
+Run the compiled program:
+
+```bash
+./main
 ```
 
-### Deleting a Line
-To delete a specific line, use the `delete` command followed by the line number.
-```sh
-delete 3
-```
+## Usage Example 📘
 
-### Displaying the Text
-To display all lines of your text, use the `display` command.
-```sh
-display
-```
+1. **Add a Line**:
+    ```sh
+    > add This is a new line
+    ```
 
-### Saving the File
-To save your current text to a file, use the `save` command. If the file name is not already set, you will be prompted to enter one.
-```sh
-save
-```
+2. **Edit a Line**:
+    ```sh
+    > edit 1
+    Current line: This is a new line
+    Enter new line (or leave empty to keep current): This is the edited line
+    ```
 
-### Opening a File
-To open and read a text file, use the `open` command followed by the file name.
-```sh
-open example.txt
-```
+3. **Delete a Line**:
+    ```sh
+    > del 1
+    ```
 
-### Clearing the Screen
-To clear the screen and re-display the current text, use the `clear` command.
-```sh
-clear
-```
+4. **Save to a File**:
+    ```sh
+    > save
+    File name not set. Please enter a file name to save with its extension (e.g., FILENAME.txt): example.txt
+    Saving file...
+    File saved successfully as "example.txt".
+    ```
 
-### Showing the Menu
-To display the list of available commands, use the `menu` command.
-```sh
-menu
-```
-
-### Exiting the Editor
-To exit the text editor, use the `exit` command.
-```sh
-exit
-```
-
-## Sample Menu 📋
-Here’s what the menu looks like:
-```
-+-----------------------------Simple-Text-Editor-Menu------------------------------+
-| add [line] - Add a new line                                                      |
-| edit [lineNum] [newLine] - Edit an existing line                                 |
-| delete [lineNum] - Delete a line                                                 |
-| display - Display all lines                                                      |
-| save - Save file                                                                 |
-| open [filename] - Load data from file                                            |
-| menu - Show menu                                                                 |
-| clear - Clear the screen and display the text                                    |
-| exit - Exit the editor                                                           |
-+----------------------------------------------------------------------------------+
-```
-
-## Code Structure 🏗️
-
-The code is structured around a doubly linked list to store and manipulate lines of text efficiently. Below is an overview of the key components:
-
-- **Node Structure**: Represents each line of text with pointers to the next and previous nodes.
-- **TextEditor Class**: Encapsulates all the functionalities like adding, editing, deleting lines, displaying the text, saving to a file, reading from a file, and handling user commands.
-
-### Installation and Compilation
-To compile and run the text editor, you need a C++ compiler like `g++`. Use the following commands to compile and run the program:
-```sh
-g++ -o TextEditor TextEditor.cpp
-./TextEditor
-```
-POC
-https://github.com/user-attachments/assets/af503e57-9465-4bbc-870e-b15d72f4d1a2
-
-### Dependencies
-This project uses the C++ standard library and the `<unistd.h>` library for sleep functionality.
-
-
+5. **Open a File**:
+    ```sh
+    > open example.txt
+    ```
