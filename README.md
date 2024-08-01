@@ -2,7 +2,6 @@
 
 Welcome to the **Simple Text Editor**! This is a command-line based text editor written in C++ using doubly linked list data structure. It offers basic text manipulation features and supports color-coded outputs for better readability. Below is a detailed guide on how to use this editor.
 
-
 ## Features ✨
 
 - **Add Lines**: Add new lines of text, either individually or multiple lines at once.
@@ -81,3 +80,6 @@ Run the compiled program:
     ```sh
     > open example.txt
     ```
+
+## Flowchart
+![flowchart](flowchart.png)
