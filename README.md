@@ -99,6 +99,10 @@ To compile and run the text editor, you need a C++ compiler like `g++`. Use the 
 g++ -o TextEditor TextEditor.cpp
 ./TextEditor
 ```
+POC
+https://github.com/user-attachments/assets/af503e57-9465-4bbc-870e-b15d72f4d1a2
 
 ### Dependencies
 This project uses the C++ standard library and the `<unistd.h>` library for sleep functionality.
+
+
