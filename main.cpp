@@ -542,10 +542,10 @@ private:
         cout << CYAN << "add -a <line_number>" << RESET << " - Adds a new line above the specified line number." << endl;
         cout << CYAN << "edit <line_number>" << RESET << " - Edits the specified line with the new text." << endl;
         cout << CYAN << "del <line_number>" << RESET << " - Deletes the specified line number." << endl;
+        cout << CYAN << "del -a" << RESET << " - Deletes all the lines." << endl;
         cout << CYAN << "display" << RESET << " - Displays the current text." << endl;
         cout << CYAN << "save" << RESET << " - Saves the current text to a file." << endl;
         cout << CYAN << "open <file_name>" << RESET << " - Opens the specified file and loads the content." << endl;
-        cout << CYAN << "del -a" << RESET << " - Deletes all the lines." << endl;
         cout << CYAN << "exit" << RESET << " - Exits the text editor." << endl;
         
     }
