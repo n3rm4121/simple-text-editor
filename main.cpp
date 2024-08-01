@@ -17,6 +17,21 @@ const string WHITE = "\033[37m";
 const string WHITE_BG = "\033[48;5;15m"; // White background
 const string YELLOW_BG = "\033[43m";    // Yellow background
 
+void showArt() {
+    const string art = R"(
+  _________.__               .__           ___________              __    ___________    .___.__  __                 
+ /   _____/|__| _____ ______ |  |   ____   \__    ___/___ ___  ____/  |_  \_   _____/  __| _/|__|/  |_  ___________  
+ \_____  \ |  |/     \\____ \|  | _/ __ \    |    |_/ __ \\  \/  /\   __\  |    __)_  / __ | |  \   __\/  _ \_  __ \ 
+ /        \|  |  Y Y  \  |_> >  |_\  ___/    |    |\  ___/ >    <  |  |    |        \/ /_/ | |  ||  | (  <_> )  | \/ 
+/_______  /|__|__|_|  /   __/|____/\___  >   |____| \___  >__/\_ \ |__|   /_______  /\____ | |__||__|  \____/|__|    
+        \/          \/|__|             \/               \/      \/                \/      \/                         
+)";
+
+cout << art << endl;
+
+
+}
+
 struct Node
 {
     string line;
@@ -173,6 +188,8 @@ public:
 
     void display() const {
     system("clear");    // clears the terminal
+        showArt();
+
     cout << endl;
     cout << YELLOW << "Enter 'menu' to display the commands\n" << RESET;
 
@@ -533,7 +550,8 @@ private:
 
     void showMenu() const
     {
-       
+        system("clear");
+       showArt();
         cout << YELLOW_BG << WHITE << "Available commands:" << RESET << endl;
         cout << CYAN << "menu" << RESET << " - Displays the available commands." << endl;
         cout << CYAN << "add <text>" << RESET << " - Adds a new line with the given text." << endl;
@@ -567,24 +585,10 @@ private:
 };
 
 
-void showArt() {
-    const string art = R"(
-  _________.__               .__           ___________              __    ___________    .___.__  __                 
- /   _____/|__| _____ ______ |  |   ____   \__    ___/___ ___  ____/  |_  \_   _____/  __| _/|__|/  |_  ___________  
- \_____  \ |  |/     \\____ \|  | _/ __ \    |    |_/ __ \\  \/  /\   __\  |    __)_  / __ | |  \   __\/  _ \_  __ \ 
- /        \|  |  Y Y  \  |_> >  |_\  ___/    |    |\  ___/ >    <  |  |    |        \/ /_/ | |  ||  | (  <_> )  | \/ 
-/_______  /|__|__|_|  /   __/|____/\___  >   |____| \___  >__/\_ \ |__|   /_______  /\____ | |__||__|  \____/|__|    
-        \/          \/|__|             \/               \/      \/                \/      \/                         
-)";
 
-cout << art << endl;
-
-
-}
 
 int main()
 {
-    showArt();
     TextEditor editor;
     editor.run();
     return 0;
