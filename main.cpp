@@ -338,6 +338,7 @@ public:
                 {
                     cout << RED << "Invalid input:" << RESET << YELLOW << " Please provide a numeric line number.\n"
                          << RESET;
+                         cout << YELLOW << "Usage: addbelow <line_number>\n" << RESET;
                 }
             }
             else if(command.substr(0, 7) == "add -a ")
@@ -352,6 +353,7 @@ public:
                 {
                     cout << RED << "Invalid input:" << RESET << YELLOW << " Please provide a numeric line number.\n"
                          << RESET;
+                            cout << YELLOW << "Usage: addabove <line_number>\n" << RESET;
                 }
             }
             else if (command.substr(0, 4) == "add ")
@@ -393,6 +395,7 @@ public:
                 {
                     cout << RED << "Invalid input:" << RESET << YELLOW << " Please provide a numeric line number.\n"
                          << RESET;
+                    cout << YELLOW << "Usage: del <line_number>\n" << RESET;
                 }
             }
            
@@ -412,6 +415,7 @@ public:
             {
                 cout << RED << "Unknown command." << RESET << YELLOW << " Enter 'menu' to see commands.\n"
                      << RESET;
+                     
             }
         }
     }
