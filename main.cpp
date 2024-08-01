@@ -188,7 +188,7 @@ public:
 
     void display() const {
     system("clear");    // clears the terminal
-        showArt();
+    showArt();
 
     cout << endl;
     cout << YELLOW << "Enter 'menu' to display the commands\n" << RESET;
@@ -551,7 +551,8 @@ private:
     void showMenu() const
     {
         system("clear");
-       showArt();
+        showArt();
+      
         cout << YELLOW_BG << WHITE << "Available commands:" << RESET << endl;
         cout << CYAN << "menu" << RESET << " - Displays the available commands." << endl;
         cout << CYAN << "add <text>" << RESET << " - Adds a new line with the given text." << endl;
@@ -565,7 +566,7 @@ private:
         cout << CYAN << "save" << RESET << " - Saves the current text to a file." << endl;
         cout << CYAN << "open <file_name>" << RESET << " - Opens the specified file and loads the content." << endl;
         cout << CYAN << "exit" << RESET << " - Exits the text editor." << endl;
-        
+
     }
 
     bool showConfirmation(const string &message) const
