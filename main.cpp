@@ -104,7 +104,7 @@ public:
         }
     }
 
-    void deleteLine(int lineNumberToDelete)
+    void deleteSingleLine(int lineNumberToDelete)
     {
         if(!showConfirmation("Are you sure you want to delete line " + std::to_string(lineNumberToDelete) + "?")){
             return;
@@ -143,6 +143,31 @@ public:
         else
         {
             cout << "Line number out of range\n";
+        }
+    }
+
+    void deleteAllLines()
+    {
+        if (head == nullptr)
+        {
+            cout << "No lines to delete\n";
+            return;
+        }
+
+        if (showConfirmation("Are you sure you want to delete all lines?"))
+        {
+            Node *current = head;
+            while (current != nullptr)
+            {
+                Node *nextNode = current->next;
+                delete current;
+                current = nextNode;
+            }
+            head = tail = nullptr;
+            lineCount = 0;
+            display();
+            cout << GREEN << "All lines deleted.\n"
+                 << RESET;
         }
     }
 
@@ -301,14 +326,9 @@ public:
             {
                 addMultipleLines();
             }
-            else if (command.substr(0, 4) == "add ")
+            else if (command.substr(0, 7) == "add -b ")
             {
-                string line = command.substr(4);
-                addLine(line);
-            }
-            else if (command.substr(0, 9) == "addbelow ")
-            {
-                std::string lineNumberStr = command.substr(9);
+                std::string lineNumberStr = command.substr(7);
                 if (isNumber(lineNumberStr))
                 {
                     int lineNumber = std::stoi(lineNumberStr);
@@ -320,9 +340,9 @@ public:
                          << RESET;
                 }
             }
-            else if(command.substr(0, 9) == "addabove ")
+            else if(command.substr(0, 7) == "add -a ")
             {
-                std::string lineNumberStr = command.substr(9);
+                std::string lineNumberStr = command.substr(7);
                 if (isNumber(lineNumberStr))
                 {
                     int lineNumber = std::stoi(lineNumberStr);
@@ -334,6 +354,12 @@ public:
                          << RESET;
                 }
             }
+            else if (command.substr(0, 4) == "add ")
+            {
+                string line = command.substr(4);
+                addLine(line);
+            }
+            
             else if (command == "display")
             {
                 display();
@@ -351,13 +377,17 @@ public:
                 int lineNumber = stoi(command.substr(5));
                 editLine(lineNumber);
             }
+             else if(command == "del -a")
+            {
+                deleteAllLines();
+            }
             else if (command.substr(0, 4) == "del ")
             {
                 std::string lineNumberStr = command.substr(4);
                 if (isNumber(lineNumberStr))
                 {
                     int lineNumber = std::stoi(lineNumberStr);
-                    deleteLine(lineNumber);
+                    deleteSingleLine(lineNumber);
                 }
                 else
                 {
@@ -365,6 +395,7 @@ public:
                          << RESET;
                 }
             }
+           
             else if (command == "clear")
             {
                 display();
@@ -500,18 +531,19 @@ private:
     {
        
         cout << YELLOW_BG << WHITE << "Available commands:" << RESET << endl;
+        cout << CYAN << "menu" << RESET << " - Displays the available commands." << endl;
         cout << CYAN << "add <text>" << RESET << " - Adds a new line with the given text." << endl;
         cout << CYAN << "add -m" << RESET << " - Adds multiple lines until 'end' is entered." << endl;
-        cout << CYAN << "addbelow <line_number>" << RESET << " - Adds a new line below the specified line number." << endl;
-        cout << CYAN << "addabove <line_number>" << RESET << " - Adds a new line above the specified line number." << endl;
+        cout << CYAN << "add -b <line_number>" << RESET << " - Adds a new line below the specified line number." << endl;
+        cout << CYAN << "add -a <line_number>" << RESET << " - Adds a new line above the specified line number." << endl;
         cout << CYAN << "edit <line_number>" << RESET << " - Edits the specified line with the new text." << endl;
         cout << CYAN << "del <line_number>" << RESET << " - Deletes the specified line number." << endl;
         cout << CYAN << "display" << RESET << " - Displays the current text." << endl;
         cout << CYAN << "save" << RESET << " - Saves the current text to a file." << endl;
         cout << CYAN << "open <file_name>" << RESET << " - Opens the specified file and loads the content." << endl;
-        cout << CYAN << "clear" << RESET << " - Clears the screen and displays the current text." << endl;
+        cout << CYAN << "del -a" << RESET << " - Deletes all the lines." << endl;
         cout << CYAN << "exit" << RESET << " - Exits the text editor." << endl;
-        cout << CYAN << "menu" << RESET << " - Displays the available commands." << endl;
+        
     }
 
     bool showConfirmation(const string &message) const
