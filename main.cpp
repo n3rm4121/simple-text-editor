@@ -6,16 +6,16 @@
 using namespace std;
 
 // ANSI escape codes for colors
-const std::string RESET = "\033[0m"; // to reset the color back to the default after each line
-const std::string RED = "\033[31m";
-const std::string GREEN = "\033[32m";
-const std::string YELLOW = "\033[33m";
-const std::string BLUE = "\033[34m";
-const std::string MAGENTA = "\033[35m";
-const std::string CYAN = "\033[36m";
-const std::string WHITE = "\033[37m";
-const std::string WHITE_BG = "\033[48;5;15m"; // White background
-const std::string YELLOW_BG = "\033[43m";    // Yellow background
+const string RESET = "\033[0m"; // to reset the color back to the default after each line
+const string RED = "\033[31m";
+const string GREEN = "\033[32m";
+const string YELLOW = "\033[33m";
+const string BLUE = "\033[34m";
+const string MAGENTA = "\033[35m";
+const string CYAN = "\033[36m";
+const string WHITE = "\033[37m";
+const string WHITE_BG = "\033[48;5;15m"; // White background
+const string YELLOW_BG = "\033[43m";    // Yellow background
 
 struct Node
 {
@@ -220,7 +220,7 @@ public:
     while (temp != nullptr) {
         // Format line number with padding
         string lineNum = std::to_string(count);
-        string paddedLineNum = std::string(maxLineNumberWidth - lineNum.size(), ' ') + lineNum;
+        string paddedLineNum = string(maxLineNumberWidth - lineNum.size(), ' ') + lineNum;
 
         cout << CYAN<< paddedLineNum << RESET << BLUE << " |  " << RESET << temp->line << endl;
 
@@ -314,7 +314,7 @@ public:
 
     void run()
     {
-        std::string command;
+        string command;
         showMenu();
         cout << endl;
         while (true)
@@ -328,7 +328,7 @@ public:
             }
             else if (command.substr(0, 7) == "add -b ")
             {
-                std::string lineNumberStr = command.substr(7);
+                string lineNumberStr = command.substr(7);
                 if (isNumber(lineNumberStr))
                 {
                     int lineNumber = std::stoi(lineNumberStr);
@@ -343,7 +343,7 @@ public:
             }
             else if(command.substr(0, 7) == "add -a ")
             {
-                std::string lineNumberStr = command.substr(7);
+                string lineNumberStr = command.substr(7);
                 if (isNumber(lineNumberStr))
                 {
                     int lineNumber = std::stoi(lineNumberStr);
@@ -385,7 +385,7 @@ public:
             }
             else if (command.substr(0, 4) == "del ")
             {
-                std::string lineNumberStr = command.substr(4);
+                string lineNumberStr = command.substr(4);
                 if (isNumber(lineNumberStr))
                 {
                     int lineNumber = std::stoi(lineNumberStr);
@@ -415,7 +415,7 @@ public:
             {
                 cout << RED << "Unknown command." << RESET << YELLOW << " Enter 'menu' to see commands.\n"
                      << RESET;
-                     
+
             }
         }
     }
